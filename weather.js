@@ -1,0 +1,22 @@
+class Weather {
+  constructor(city, countryCode) {
+    this.apiKey = "7601423fb2b5f90bb89e30266f00a63d";
+    this.city = city;
+    this.countryCode = countryCode;
+  }
+
+  //Fetch weather from API
+  async getWeather() {
+    const response = await fetch(
+      `http://api.openweathermap.org/data/2.5/forecast?q=${this.city},${this.countryCode}&APPID=${this.apiKey}`
+    );
+    const responseData = await response.json();
+    return responseData.list[0];
+  }
+
+  //Change weather location
+  changeLocation(city, countryCode) {
+    this.city = city;
+    this.countryCode = countryCode;
+  }
+}
