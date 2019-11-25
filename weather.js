@@ -11,7 +11,8 @@ class Weather {
       `http://api.openweathermap.org/data/2.5/forecast?q=${this.city},${this.countryCode}&APPID=${this.apiKey}`
     );
     const responseData = await response.json();
-    return responseData.list[0];
+    console.log(responseData);
+    return responseData;
   }
 
   //Change weather location
